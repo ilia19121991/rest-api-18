@@ -1,4 +1,4 @@
-package specs;
+package groovylesson;
 
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;

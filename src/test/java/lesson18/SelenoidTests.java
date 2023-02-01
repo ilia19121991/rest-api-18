@@ -1,3 +1,4 @@
+package lesson18;
 
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.get;

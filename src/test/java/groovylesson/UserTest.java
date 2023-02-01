@@ -1,14 +1,14 @@
-package specs;
+package groovylesson;
 
-import lombok.LombokUserData;
-import models.User;
-import models.UserData;
+import groovylesson.lombok.LombokUserData;
+import groovylesson.models.UserData;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static specs.Specs.request;
-import static specs.Specs.resronseSpec;
+import static groovylesson.Specs.request;
+import static groovylesson.Specs.resronseSpec;
 
 public class UserTest {
     @Test
@@ -51,7 +51,7 @@ public class UserTest {
                 .log().body()
                 .extract().as(LombokUserData.class);
         // @formatter:on
-        assertEquals(2, data.getUser().getId());
+        Assertions.assertEquals(2, data.getUser().getId());
         // @formatter:off
     }
 
