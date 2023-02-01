@@ -10,8 +10,13 @@ def slf4jVersion = "1.7.32"
 
 dependencies {
     testImplementation(
+            //client
             "io.rest-assured:rest-assured:5.3.0",
+            //json
+            "com.fasterxml.jackson.core:jackson-databind:2.11.2",
+            //JUnit
             "org.junit.jupiter:junit-jupiter:5.9.0",
+            //
             "org.slf4j:slf4j-simple:$slf4jVersion"
     )
 }
