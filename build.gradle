@@ -12,6 +12,8 @@ dependencies {
     testImplementation(
             //client
             "io.rest-assured:rest-assured:5.3.0",
+            //config
+            "org.aeonbits.owner:owner:1.0.12",
             //json
             "com.fasterxml.jackson.core:jackson-databind:2.11.2",
             //JUnit
@@ -19,6 +21,7 @@ dependencies {
             //
             "org.slf4j:slf4j-simple:$slf4jVersion"
     )
+    testImplementation 'org.projectlombok:lombok:1.18.22'
 }
 
 tasks.withType(Test) {
