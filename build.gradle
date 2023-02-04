@@ -1,5 +1,6 @@
 plugins {
     id 'java-library'
+    id "io.freefair.lombok" version "6.0.0-m2"
 }
 
 repositories {
@@ -22,6 +23,10 @@ dependencies {
             "org.slf4j:slf4j-simple:$slf4jVersion"
     )
     testImplementation 'org.projectlombok:lombok:1.18.22'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
 }
 
 tasks.withType(Test) {
