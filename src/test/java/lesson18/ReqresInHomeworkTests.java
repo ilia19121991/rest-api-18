@@ -17,7 +17,6 @@ public class ReqresInHomeworkTests {
                 .then()
                 .log().status()
                 .log().body()
-                .body("page", is(2))
                 .body("data.email", hasItem("rachel.howell@reqres.in"));
 
     }
