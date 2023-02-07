@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static groovylesson.Specs.request;
 import static groovylesson.Specs.resronseSpec;
 import static io.restassured.RestAssured.given;
+import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -54,27 +55,23 @@ public class UserTest2 {
 
     }
 
-    /**
-     * пока не понял, вернуться
-     */
     @Test
-    void createUserTest() {
-        String createUser = "{ \"name\": \"morpheus\", \"job\": \"leader\" }";
+    void updateUserWithLambokTest() {
+        String updateUser = "{ \"name\": \"Andrey\", \"job\": \"QA\" }";
 
-        given()
+        LombokUserData2 data2 = given()
                 .spec(request)
-                .body(createUser)
+                .body(updateUser)
                 .when()
-                .post("/users")
+                .put("/users/2")
                 .then()
-                .log().body()
+                .spec(resronseSpec)
                 .log().status()
-                .statusCode(201)
-                .body("findAll{it.name =~/.*?morpheus}.name.flatten()", hasItem("morpheus"));
+                .log().body()
+                .extract().as(LombokUserData2.class);
 
-
-       // assertEquals(data.getLambokCreateUser().getName(), "morpheus");
-       // assertEquals(data.getLambokCreateUser().getJob(), "leader");
+                assertEquals(data2.getLambokUser().getName(), "Andrey");
+                assertEquals(data2.getLambokUser().getJob(), "QA");
 
     }
 
