@@ -13,10 +13,7 @@ public class LombokUser {
         private String firstname;
         @JsonProperty("last_name")
         private String lastname;
-        @JsonProperty("name")
-        private String name;
-        @JsonProperty("job")
-        private String job;
+
 
 
 

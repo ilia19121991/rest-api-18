@@ -1,14 +1,12 @@
 package groovylessonhomework;
 
-import groovylessonhomework.createuser.LambokCreateUserData;
+import groovylessonhomework.updateUser.LambokUpdateUserData;
 import org.junit.jupiter.api.Test;
 
 import static groovylesson.Specs.request;
 import static groovylesson.Specs.resronseSpec;
 import static io.restassured.RestAssured.given;
-import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UserTest2 {
@@ -55,25 +53,6 @@ public class UserTest2 {
 
     }
 
-    @Test
-    void updateUserWithLambokTest() {
-        String updateUser = "{ \"name\": \"Andrey\", \"job\": \"QA\" }";
-
-        LombokUserData2 data2 = given()
-                .spec(request)
-                .body(updateUser)
-                .when()
-                .put("/users/2")
-                .then()
-                .spec(resronseSpec)
-                .log().status()
-                .log().body()
-                .extract().as(LombokUserData2.class);
-
-                assertEquals(data2.getLambokUser().getName(), "Andrey");
-                assertEquals(data2.getLambokUser().getJob(), "QA");
-
-    }
 
 
 }
