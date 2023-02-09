@@ -1,6 +1,5 @@
 package groovylessonhomework;
 
-import groovylessonhomework.updateUser.LambokUpdateUserData;
 import org.junit.jupiter.api.Test;
 
 import static groovylesson.Specs.request;
@@ -52,7 +51,4 @@ public class UserTest2 {
         assertEquals(data2.getLambokUser().getEmail(), "janet.weaver@reqres.in");
 
     }
-
-
-
 }
