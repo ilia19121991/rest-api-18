@@ -1,5 +1,6 @@
 package groovylessonhomework;
 
+import groovylessonhomework.models.LombokUserModel;
 import org.junit.jupiter.api.Test;
 
 import static groovylesson.Specs.request;
@@ -8,7 +9,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasItem;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class UserTest2 {
+public class UserModelTest {
     @Test
     void checkUserExistsTestWithGroovy() {
         given()
@@ -37,7 +38,7 @@ public class UserTest2 {
 
     @Test
     void getSingleUserWithLambokTest() {
-        LombokUserData2 data2 = given()
+        LombokUserModel data = given()
                 .spec(request)
                 .when()
                 .get("/users/2")
@@ -45,10 +46,10 @@ public class UserTest2 {
                 .spec(resronseSpec)
                 .log().status()
                 .log().body()
-                .extract().as(LombokUserData2.class);
+                .extract().as(LombokUserModel.class);
 
-        assertEquals(data2.getLambokUser().getId(),2);
-        assertEquals(data2.getLambokUser().getEmail(), "janet.weaver@reqres.in");
+        assertEquals(data.getData().getId(),2);
+        assertEquals(data.getData().getEmail(), "janet.weaver@reqres.in");
 
     }
 }
