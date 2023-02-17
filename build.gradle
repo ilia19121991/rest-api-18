@@ -1,4 +1,45 @@
 plugins {
+    id 'java'
+    id "io.freefair.lombok" version "6.0.0-m2"
+}
+
+
+
+group 'guru.qa'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    testImplementation(
+            //client
+            "io.rest-assured:rest-assured:5.3.0",
+            //config
+            "org.aeonbits.owner:owner:1.0.12",
+            //json
+            "com.fasterxml.jackson.core:jackson-databind:2.14.2",
+            //JUnit
+            "org.junit.jupiter:junit-jupiter-api:5.6.2",
+            "org.junit.jupiter:junit-jupiter-engine:5.6.2",
+            "org.junit.jupiter:junit-jupiter-params:5.6.2"
+    )
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+/*
+plugins {
     id 'java-library'
     id "io.freefair.lombok" version "6.0.0-m2"
 }
@@ -8,6 +49,9 @@ repositories {
 }
 
 def slf4jVersion = "1.7.32"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 dependencies {
     testImplementation(
@@ -39,4 +83,4 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
-}
+}*/
