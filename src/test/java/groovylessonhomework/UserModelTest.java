@@ -10,6 +10,8 @@ import static groovylesson.Specs.resronseSpec;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasItem;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class UserModelTest {
     @Test
@@ -57,16 +59,13 @@ public class UserModelTest {
 
    @Test
     void createUserWithLombokTest() {
-        LombokPostUser lombokPostUser = new LombokPostUser();
-        lombokPostUser.setName("morpheus");
-        lombokPostUser.setJob("leader");
 
-        LombokDataModel data = new LombokDataModel();
-
-        data.setLombokPostUser(lombokPostUser);
+       LombokDataModel data = new LombokDataModel();
+       data.setName("morpheus");
+       data.setJob("leader");
 
 
-        LombokDataModel dataModel = given()
+        LombokPostUser response = given()
                 .spec(request)
                 .body(data)
                 .when()
@@ -74,24 +73,32 @@ public class UserModelTest {
                 .then()
                 .log().status()
                 .log().body()
-                .extract().as(LombokDataModel.class);
+                .extract().as(LombokPostUser.class);
 
-        assertEquals(dataModel.getLombokPostUser().getName(), "morpheus");
-        assertEquals(dataModel.getLombokPostUser().getJob(), "leader");
+        assertThat(response.getName()).isEqualTo("morpheus");
+        assertThat(response.getJob()).isEqualTo("leader");
+
+      //  assertEquals(dataModel.getLombokPostUser().getName(), "morpheus");
+      //  assertEquals(dataModel.getLombokPostUser().getJob(), "leader");
+
+        /*LombokPostUser lombokPostUser = new LombokPostUser();
+        lombokPostUser.setName("morpheus");
+        lombokPostUser.setJob("leader");
+
+        LombokDataModel data = new LombokDataModel();
+
+        data.setLombokPostUser(lombokPostUser);*/
 
     }
 
     @Test
     void updateUserWithLombokTest() {
-        LombokPostUser lombokPostUser = new LombokPostUser();
-        lombokPostUser.setName("Sergey");
-        lombokPostUser.setJob("QA TeamLead");
 
         LombokDataModel data = new LombokDataModel();
+        data.setName("Sergey");
+        data.setJob("QA TeamLead");
 
-        data.setLombokPostUser(lombokPostUser);
-
-        LombokDataModel dataModel = given()
+        LombokPostUser response = given()
                 .spec(request)
                 .body(data)
                 .when()
@@ -99,10 +106,19 @@ public class UserModelTest {
                 .then()
                 .log().status()
                 .log().body()
-                .extract().as(LombokDataModel.class);
+                .extract().as(LombokPostUser.class);
 
-        assertEquals(data.getLombokPostUser().getName(), "Sergey");
-        assertEquals(data.getLombokPostUser().getJob(), "QA TeamLead");
+        assertEquals(data.getName(), "Sergey");
+        assertEquals(data.getJob(), "QA TeamLead");
+
+        /*LombokPostUser lombokPostUser = new LombokPostUser();
+        lombokPostUser.setName("Sergey");
+        lombokPostUser.setJob("QA TeamLead");
+
+        LombokDataModel data = new LombokDataModel();
+
+        data.setLombokPostUser(lombokPostUser);*/
+
     }
 
 }

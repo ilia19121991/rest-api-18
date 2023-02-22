@@ -1,7 +1,10 @@
 package tests;
 
-import models.LoginBodyModel;
-import models.LoginResponseModel;
+import io.qameta.allure.restassured.AllureRestAssured;
+import models.lombok.LoginBodyLombokModel;
+import models.lombok.LoginResponseLombokModel;
+import models.pojo.LoginBodyPojoModel;
+import models.pojo.LoginResponsePojoModel;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -16,6 +19,8 @@ public class RegresInExtendedTests {
 
         given()
                 .log().uri()
+                .log().headers()
+                .log().body()
                 .contentType(JSON)
                 .body(data)
                 .when()
@@ -28,13 +33,15 @@ public class RegresInExtendedTests {
     }
 
     @Test
-    void loginWithModelTest() {
-        LoginBodyModel data = new LoginBodyModel();
+    void loginWithPogoModelTest() {
+        LoginBodyPojoModel data = new LoginBodyPojoModel();
         data.setEmail("eve.holt@reqres.in");
         data.setPassword("cityslicka");
 
-        LoginResponseModel response = given()
+        LoginResponsePojoModel response = given()
                 .log().uri()
+                .log().headers()
+                .log().body()
                 .contentType(JSON)
                 .body(data)
                 .when()
@@ -43,7 +50,54 @@ public class RegresInExtendedTests {
                 .log().status()
                 .log().body()
                 .statusCode(200)
-                .extract().as(LoginResponseModel.class);
+                .extract().as(LoginResponsePojoModel.class);
+
+        assertThat(response.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
+    }
+
+    @Test
+    void loginWithLombokModelTest() {
+        LoginBodyLombokModel data = new LoginBodyLombokModel();
+        data.setEmail("eve.holt@reqres.in");
+        data.setPassword("cityslicka");
+
+        LoginResponseLombokModel response = given()
+                .log().uri()
+                .log().headers()
+                .log().body()
+                .contentType(JSON)
+                .body(data)
+                .when()
+                .post("https://reqres.in/api/login")
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(200)
+                .extract().as(LoginResponseLombokModel.class);
+
+        assertThat(response.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
+    }
+
+    @Test
+    void loginWithAllureTest() {
+        LoginBodyLombokModel data = new LoginBodyLombokModel();
+        data.setEmail("eve.holt@reqres.in");
+        data.setPassword("cityslicka");
+
+        LoginResponseLombokModel response = given()
+                .log().uri()
+                .log().headers()
+                .log().body()
+                .filter(new AllureRestAssured())
+                .contentType(JSON)
+                .body(data)
+                .when()
+                .post("https://reqres.in/api/login")
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(200)
+                .extract().as(LoginResponseLombokModel.class);
 
         assertThat(response.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
     }
