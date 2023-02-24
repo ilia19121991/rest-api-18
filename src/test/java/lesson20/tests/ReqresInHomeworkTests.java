@@ -9,11 +9,10 @@ import static io.restassured.RestAssured.given;
 import static lesson20.specs.LoginSpecs.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-
+@Tag("reqres")
 public class ReqresInHomeworkTests {
 
     @Test
-    @Tag("reqres")
     void loginTest() {
         LoginBodyLombokModel data = new LoginBodyLombokModel();
         data.setEmail("eve.holt@reqres.in");
