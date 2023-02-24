@@ -1,0 +1,18 @@
+curl 'https://demowebshop.tricentis.com/addproducttocart/details/72/1' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -H 'Cookie: NopCommerce.RecentlyViewedProducts=RecentlyViewedProductIds=72; __utmz=78382081.1676220778.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); NOPCOMMERCE.AUTH=5D35131B13512C8B6A582B05221B384B58DCF4A106357248C1CBDC157A4D2066EF71700D3B25641AB52F329B81BCABFB6425ADF32CB59BA426525D833430396ED755C72DF1693AD0831EFBA1A4B405E99E613A16C60710126782BB5125FD9BD2806C34C6CD68AFE48E6378258FC710BDC834FF9B4D251FC65F26A2BB6C061521AF5A2359275CA380D2DD236660809B8DFA9A34A73383D79AEA70530824D99C84; Nop.customer=24768fb2-38e4-4e61-928b-1586e4c8ecae; ARRAffinity=fc06465c332dbd696c292ada76ec7d7733108ecefdc4475406a3ff997944f96b; ARRAffinitySameSite=fc06465c332dbd696c292ada76ec7d7733108ecefdc4475406a3ff997944f96b; __utmc=78382081; __atuvc=6%7C7; __atuvs=63ef97aee7aebdef000; __utma=78382081.582814555.1676220778.1676533226.1676646318.5; __utmt=1; __utmb=78382081.1.10.1676646318' \
+  -H 'Origin: https://demowebshop.tricentis.com' \
+  -H 'Referer: https://demowebshop.tricentis.com/build-your-cheap-own-computer' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'sec-ch-ua: "Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --data-raw 'product_attribute_72_5_18=65&product_attribute_72_6_19=54&product_attribute_72_3_20=57&product_attribute_72_8_30=94&addtocart_72.EnteredQuantity=1' \
+  --compressed
