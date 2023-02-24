@@ -9,9 +9,10 @@ import static io.restassured.RestAssured.given;
 import static lesson20.specs.LoginSpecs.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Tag("reqres")
+
 public class ReqresInHomeworkTests {
 
+    @Tag("reqres")
     @Test
     void loginTest() {
         LoginBodyLombokModel data = new LoginBodyLombokModel();
@@ -30,6 +31,7 @@ public class ReqresInHomeworkTests {
 
     }
 
+    @Tag("reqres")
     @Test
     void unSupportedMediaTypeTest() {
 
@@ -40,6 +42,7 @@ public class ReqresInHomeworkTests {
                 .spec(unSupportedMediaTypeResponseSpec);
     }
 
+    @Tag("reqres")
     @Test
     void missingEmailOrUsernameTest() {
         LoginBodyLombokModel data = new LoginBodyLombokModel();
@@ -56,6 +59,7 @@ public class ReqresInHomeworkTests {
         assertThat(response.getError()).isEqualTo("Missing email or username");
     }
 
+    @Tag("reqres")
     @Test
     void missingPasswordTest() {
         LoginBodyLombokModel data = new LoginBodyLombokModel();
