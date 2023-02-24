@@ -2,6 +2,7 @@ package groovylessonhomework;
 
 import groovylessonhomework.models.DataModel.LombokDataModel;
 import groovylessonhomework.models.DataModel.LombokPostUser;
+import groovylessonhomework.models.UserModel.LombokUser;
 import groovylessonhomework.models.UserModel.LombokUserModel;
 import org.junit.jupiter.api.Test;
 
@@ -42,7 +43,7 @@ public class UserModelTest {
 
     @Test
     void getSingleUserWithLombokTest() {
-        LombokUserModel data = given()
+        LombokUser data = given()
                 .spec(request)
                 .when()
                 .get("/users/2")
@@ -50,10 +51,10 @@ public class UserModelTest {
                 .spec(resronseSpec)
                 .log().status()
                 .log().body()
-                .extract().as(LombokUserModel.class);
+                .extract().as(LombokUser.class);
 
-        assertEquals(data.getData().getId(),2);
-        assertEquals(data.getData().getEmail(), "janet.weaver@reqres.in");
+        assertEquals(data.getId(),2);
+        assertEquals(data.getEmail(), "janet.weaver@reqres.in");
 
     }
 
@@ -78,16 +79,6 @@ public class UserModelTest {
         assertThat(response.getName()).isEqualTo("morpheus");
         assertThat(response.getJob()).isEqualTo("leader");
 
-      //  assertEquals(dataModel.getLombokPostUser().getName(), "morpheus");
-      //  assertEquals(dataModel.getLombokPostUser().getJob(), "leader");
-
-        /*LombokPostUser lombokPostUser = new LombokPostUser();
-        lombokPostUser.setName("morpheus");
-        lombokPostUser.setJob("leader");
-
-        LombokDataModel data = new LombokDataModel();
-
-        data.setLombokPostUser(lombokPostUser);*/
 
     }
 
@@ -111,13 +102,6 @@ public class UserModelTest {
         assertEquals(data.getName(), "Sergey");
         assertEquals(data.getJob(), "QA TeamLead");
 
-        /*LombokPostUser lombokPostUser = new LombokPostUser();
-        lombokPostUser.setName("Sergey");
-        lombokPostUser.setJob("QA TeamLead");
-
-        LombokDataModel data = new LombokDataModel();
-
-        data.setLombokPostUser(lombokPostUser);*/
 
     }
 
