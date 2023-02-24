@@ -2,12 +2,14 @@ package lesson20.tests;
 
 import lesson20.models.lombok.LoginBodyLombokModel;
 import lesson20.models.lombok.LoginResponseLombokModel;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static lesson20.specs.LoginSpecs.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Tag("lesson20")
 public class ReqresInHomeworkTests {
 
     @Test

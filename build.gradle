@@ -72,6 +72,12 @@ tasks.withType(Test) {
     }
 }
 
+task lesson20_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("lesson20")
+    }
+}
+
 
 /*
 plugins {
