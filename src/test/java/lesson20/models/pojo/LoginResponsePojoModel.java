@@ -1,4 +1,4 @@
-package models.pojo;
+package lesson20.models.pojo;
 
 public class LoginResponsePojoModel {
     // { "token": "QpwL5tke4Pnpja7X4" }

@@ -1,4 +1,4 @@
-package models.pojo;
+package lesson20.models.pojo;
 
 public class LoginBodyPojoModel {
 
