@@ -4,6 +4,7 @@ import groovylessonhomework.models.DataModel.LombokDataModel;
 import groovylessonhomework.models.DataModel.LombokPostUser;
 import groovylessonhomework.models.UserModel.LombokUser;
 import groovylessonhomework.models.UserModel.LombokUserModel;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static groovylesson.Specs.request;
@@ -13,7 +14,7 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.assertj.core.api.Assertions.assertThat;
 
-
+@Tag("groovy_homework")
 public class UserModelTest {
     @Test
     void checkUserExistsTestWithGroovy() {
