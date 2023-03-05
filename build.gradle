@@ -78,6 +78,12 @@ task reqres_tests(type: Test) {
     }
 }
 
+task groovy_homework_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("groovy_homework")
+    }
+}
+
 
 /*
 plugins {
